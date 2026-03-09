@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="RequireSealedImplementation.5fe567ae-1ae5-4067-ba82-91506f9ec4c2" Version="1.0" Language="en-US" Publisher="quentin.de-potter"/>
-    <DisplayName>RequireSealedImplementation</DisplayName>
-    <Description xml:space="preserve">This is a sample diagnostic extension for the .NET Compiler Platform ("Roslyn").</Description>
+    <Identity Id="RequireSealedImplementation.5fe567ae-1ae5-4067-ba82-91506f9ec4c2" Version="1.0" Language="en-US" Publisher="QuentinDPT"/>
+    <DisplayName>Sealed Implementation .NET</DisplayName>
+    <Description xml:space="preserve">Add an attribute to force interfaces implementation to be sealed.</Description>
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0,)" />
