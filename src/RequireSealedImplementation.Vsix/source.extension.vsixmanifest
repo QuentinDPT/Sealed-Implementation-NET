@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="RequireSealedImplementation.5fe567ae-1ae5-4067-ba82-91506f9ec4c2" Version="1.0" Language="en-US" Publisher="QuentinDPT"/>
+    <Identity Id="RequireSealedImplementation.5fe567ae-1ae5-4067-ba82-91506f9ec4c3" Version="1.0" Language="en-US" Publisher="QuentinDPT"/>
     <DisplayName>Sealed Implementation .NET</DisplayName>
     <Description xml:space="preserve">Add an attribute to force interfaces implementation to be sealed.</Description>
   </Metadata>
   <Installation>
-    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0,)" />
+	  <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
+		  <ProductArchitecture>amd64</ProductArchitecture>
+	  </InstallationTarget>
+	  <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,18.0)">
+		  <ProductArchitecture>amd64</ProductArchitecture>
+	  </InstallationTarget>
+	  <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,18.0)">
+		  <ProductArchitecture>amd64</ProductArchitecture>
+	  </InstallationTarget>
   </Installation>
   <Dependencies>
-    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.7.2,)" />
   </Dependencies>
   <Assets>
     <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="RequireSealedImplementation" Path="|RequireSealedImplementation|"/>
