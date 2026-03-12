@@ -3,7 +3,9 @@
   <Metadata>
     <Identity Id="RequireSealedImplementation.5fe567ae-1ae5-4067-ba82-91506f9ec4c3" Version="1.0" Language="en-US" Publisher="QuentinDPT"/>
     <DisplayName>Sealed Implementation .NET</DisplayName>
-    <Description xml:space="preserve">Add an attribute to force interfaces implementation to be sealed.</Description>
+    <Description xml:space="preserve">Add an attribute to force implementations to be sealed.</Description>
+	<MoreInfo>https://github.com/QuentinDPT/Sealed-Implementation-NET</MoreInfo>
+	<Tags>C#, sealed, SealedImplementation, editor</Tags>
   </Metadata>
   <Installation>
 	  <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">

@@ -39,10 +39,26 @@ namespace RequireSealedImplementation
             var classDeclaration = (ClassDeclarationSyntax)context.Node;
             var classSymbol = context.SemanticModel.GetDeclaredSymbol(classDeclaration);
             if (classSymbol == null) return;
+            if (classSymbol.IsSealed) return;
+
+            var parentClass = classSymbol.BaseType;
+            var parentClassAttributes = parentClass.GetAttributes();
+
+            // Vérifier si la classe parent est une classe marquée [RequireSealedImplementation]
+            foreach (var attr in parentClassAttributes)
+            {
+                if(attr.AttributeClass?.Name == "RequireSealedImplementationAttribute")
+                {
+                    var diagnostic = Diagnostic.Create(Rule, classDeclaration.Identifier.GetLocation(),
+                        classSymbol.Name, parentClass.Name);
+                    context.ReportDiagnostic(diagnostic);
+                }
+            }
+
 
             var allInterfaces = GetAllInterfaces(classSymbol);
 
-            // Vérifier si la classe implémente une interface marquée [RequireSealed]
+            // Vérifier si la classe implémente une interface marquée [RequireSealedImplementation]
             foreach (var iface in allInterfaces)
             {
                 var attrs = iface.GetAttributes();
@@ -50,12 +66,9 @@ namespace RequireSealedImplementation
                 {
                     if (attr.AttributeClass?.Name == "RequireSealedImplementationAttribute")
                     {
-                        if (!classSymbol.IsSealed)
-                        {
-                            var diagnostic = Diagnostic.Create(Rule, classDeclaration.Identifier.GetLocation(),
-                                classSymbol.Name, iface.Name);
-                            context.ReportDiagnostic(diagnostic);
-                        }
+                        var diagnostic = Diagnostic.Create(Rule, classDeclaration.Identifier.GetLocation(),
+                            classSymbol.Name, iface.Name);
+                        context.ReportDiagnostic(diagnostic);
                     }
                 }
             }

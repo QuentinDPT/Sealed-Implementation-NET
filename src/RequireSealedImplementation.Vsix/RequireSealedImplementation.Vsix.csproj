@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.14.2120" PrivateAssets="all" />
-	  
   </ItemGroup>
 
   <PropertyGroup>
@@ -45,5 +44,8 @@
     <!-- https://github.com/Microsoft/extendvs/issues/57 -->
     <ProjectReference Update="@(ProjectReference)" Name="%(Filename)" />
   </ItemGroup>
-
+	
+  <Target Name="PreBuild" AfterTargets="PreBuildEvent">
+    <Exec Command="copy /Y &quot;$(SolutionDir)README.md&quot; &quot;$(SolutionDir)src\$(ProjectName)\README.md&quot;" />
+  </Target>
 </Project>
